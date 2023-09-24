@@ -14,19 +14,22 @@ export const Accordion = ({
 
   if (isLoading) return <p>Loading...</p>;
 
-  const handleClickToggle = (panelID) => {
+  const handleClickToggle = panelID => {
     if (!multiple)
-      setClicked((prevPanelID) => (prevPanelID === panelID ? 0 : panelID));
+      setClicked(prevPanelID => (prevPanelID === panelID ? 0 : panelID));
 
     //sets multiple panels open at a time
     multiple && expandedPanels.includes(panelID)
-      ? setExpandedPanels(expandedPanels.filter((ix) => ix !== panelID))
+      ? setExpandedPanels(expandedPanels.filter(ix => ix !== panelID))
       : setExpandedPanels([...expandedPanels, panelID]);
   };
 
   return (
     <div className={clsx("accordionContainer")}>
-      <div className="accordion" data-testid="accordion__accordionComponent">
+      <div
+        className="accordion"
+        data-testid="accordion__accordionComponent"
+      >
         <div className="accordionMainHeader">
           <h1 data-testid="accordion-main-header">Global</h1>
         </div>

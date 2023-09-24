@@ -1,10 +1,10 @@
 /*
- *  usePanels hook along with Panels Provider allow components to access and
- *  interact with panels data.
- *
+ *  usePanels takes user interactions at one component to then render some data at another
+ *  component (Accordion's parent component) and or any other component within Provider's
+ *  scope. Since data fetched at Provider, loading state also passed.
  * */
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import {
   MARKET,
   MEDIUM,
@@ -34,6 +34,7 @@ const usePanels = () => {
 // Panels provider
 const PanelsProvider = ({ children }) => {
   const [panel, setPanel] = useState(panelsInitialState);
+  const [loading, setLoading] = useState(false);
   const [activeCard, setActiveCard] = useState(undefined);
 
   const getFilterByVariantType = (name, type) =>
@@ -41,11 +42,11 @@ const PanelsProvider = ({ children }) => {
 
   // market cardOne, medium cardTwo
   const handlePanelsUpdate = async (selected, variant) => {
+    setLoading(true);
     const whichCard = isType(MARKET, variant) ? "cardOne" : "cardTwo";
     setActiveCard(whichCard);
     // update panel
     const data = getFilterByVariantType(selected, variant);
-
     setPanel(prevPanel => ({
       ...prevPanel,
       [whichCard]: {
@@ -56,9 +57,14 @@ const PanelsProvider = ({ children }) => {
     }));
   };
 
+  useEffect(() => {
+    setLoading(false);
+  }, [loading]);
+
   const value = {
     panel,
     handlePanelsUpdate,
+    loading,
   };
 
   return (

@@ -1,13 +1,11 @@
 import React from "react";
 import Accordion from "../Accordion";
-
-//import { useObjectState } from "@uidotdev/usehooks";
 import { usePanels } from "../usePanels/usePanelsContext";
 
 export const Panels = () => {
-  const { panel } = usePanels();
+  const { panel, loading } = usePanels();
 
-  //const [state, setState] = useObjectState(initialState);
+  if (loading) return <p>Loading...</p>;
 
   return (
     <>

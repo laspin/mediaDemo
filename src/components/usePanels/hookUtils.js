@@ -27,7 +27,7 @@ export const getMarketVariant = mkt => {
     case "Mexico":
       return dataFour;
     case "None":
-      return [...initialState];
+      return [...panelsInitialState];
     default:
       return [];
   }
@@ -44,7 +44,7 @@ export const getMediumVariant = med => {
     case "Distribution":
       return dataFour;
     case "None":
-      return [...initialState];
+      return [...panelsInitialState];
     default:
       return [];
   }
