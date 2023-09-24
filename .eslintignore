@@ -1,0 +1,20 @@
+# dependencies
+/node_modules
+
+# testing
+**/*.test.js
+
+# production
+/build
+
+# misc
+.DS_Store
+.env
+src/gsap/
+.idea
+!/.prettierignore
+
+# cypress
+**/*.cy.js
+
+assets/**/*

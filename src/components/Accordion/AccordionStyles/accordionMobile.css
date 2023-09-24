@@ -1,0 +1,88 @@
+@media screen and (max-width: 980px) {
+  .tableRow,.tableHeading {
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+  }
+  .tableCell {
+    &.cell1,
+    &.cell2,
+    &.cell3,
+    &.cell4 {
+      font-size: 92%;
+      margin: 0 0 0 10px;
+      overflow-x: scroll;
+      width: 100%;
+    }
+  }
+  .tableHeading .tableCell {
+    font-size: 80%;
+    font-weight: 600;
+
+  }
+  .tableRow .tableCell.cell1 {
+    font-weight: normal !important;
+    font-size: 94%;
+    padding: 7px 0;
+    line-height: 1.35;
+
+  }
+  .accordionContent .gridCard {
+    transition: width .25s ease-in, height .25s ease-in;
+    padding: 0;
+    width: 100%;
+    justify-items: flex-start;
+  }
+  .tableHeading {
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    padding: 0;
+    width: 100%;
+    justify-items: flex-start;
+  }
+  .tableRow {
+    transition: all .25s ease-in;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    padding: 0;
+    overflow: hidden;
+    overflow-x: scroll;
+    display: grid;
+    grid-gap: 10px;
+    justify-items: self-start;
+    .tableCell {
+      max-width: 100px;
+    }
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 587px) {
+  .accordionHeader {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    & h3 {
+      flex-wrap: wrap;
+      width: 100%;
+      font-size: 18px;
+      flex: 1 1;
+    }
+  }
+  .tableHeading {
+    grid-template-columns: repeat(4, minmax(60px, 0.7fr));
+  }
+  .tableHeading .tableCell {
+    font-size:14px;
+  }
+  .tableRow {
+    transition: all .25s ease-in;
+    grid-template-columns: repeat(4, minmax(60px, 0.7fr));
+  }
+
+}
+
+@media screen and (max-width: 380px) {
+  .tableHeading .tableCell {
+    font-size:10px;
+  }
+}

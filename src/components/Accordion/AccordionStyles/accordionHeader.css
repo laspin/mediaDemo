@@ -1,0 +1,44 @@
+.accordionHeader {
+  display: flex;
+  background-color: var(--acrdHeadGrnBg);
+  width: 100%;
+  height: 54px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  transition: color 200ms ease 0ms;
+  align-items: center;
+  padding: 0 19px;
+  h3 {
+    text-align: left;
+    margin: 0;
+    font-weight: 800;
+    font-family: var(--acrdFontPrimary);
+    font-size: 20px;
+    word-spacing: 0.312px;
+    display: flex;
+    color: var(--acrdTextWhiteColor);
+  }
+  span {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 11px;
+    align-items: center;
+    &.arrow {
+      padding: 0;
+      &.arrowUp {
+        transition: transform 200ms 0ms;
+        transform: rotateZ(180deg);
+        height: auto;
+      }
+      &.arrowDown {
+        transition: transform 200ms 0ms;
+        transform: rotateZ(0deg);
+        height: auto;
+      }
+    }
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

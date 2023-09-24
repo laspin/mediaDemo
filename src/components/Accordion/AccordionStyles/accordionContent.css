@@ -1,0 +1,24 @@
+.accordionContent {
+  background: var(----acrdBrownlightBg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100%);
+  height: auto;
+  padding: 0;
+  margin: auto;
+}
+
+.accordionContent .gridCard {
+  width: 100%;
+  height: auto;
+  display: grid;
+  padding: 0 2.313rem 0 1.5rem;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  grid-row-gap: 10px;
+  margin-bottom: 1.8rem;
+  justify-content: space-between;
+}

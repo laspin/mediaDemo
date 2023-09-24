@@ -1,0 +1,86 @@
+.accordionContainer {
+  display: grid;
+  margin: 0 auto;
+  height: 100%;
+  overflow: auto;
+  width: 100%;  /* sb has own padding/margins at iframe level */
+  grid-template-columns: 0 repeat(1, calc(100%)) 0;
+  grid-template-areas: "R1Col1 R1Col2 R1Col3";
+}
+
+.accordionContainer.accordionLeft {
+  grid-template-areas: "R1Col2 R1Col1 R1Col3";
+  transition: all 400ms linear 0ms;
+}
+
+.accordionContainer.accordionRight {
+  grid-template-areas: "R1Col1 R1Col3 R1Col2";
+  transition: all 400ms linear 0ms;
+}
+
+.accordion {
+  width: 100%;
+  display: grid;
+  max-width: 1140px;
+  grid-area: R1Col2;
+  height: auto;
+  max-height: 100vh;
+  margin: 0 auto;
+  animation: rotate;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  ul.panels {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin:0;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+}
+
+.accordionMainHeader {
+  display: flex;
+  width: 100%;
+  height: 54px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 15px;
+  align-items: center;
+  h1 {
+    color: var(--acrdHeadingColor);
+    font-family: var(--acrdFontStarling);
+    word-spacing: 0.28px;
+    font-size: 28px;
+    margin: 0;
+    font-weight: 900;
+  }
+}
+
+.accordionItem {
+  width: 100%;
+  display: flex;
+  height: auto;
+  outline: none;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  cursor: pointer;
+  background: #fcfaf0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.expanded {
+    overflow: hidden;
+    max-height: fit-content;
+    opacity: 1;
+    animation: expand 800ms ease 0ms;
+  }
+  &.collapsed {
+    flex-shrink: 0;
+    animation: collapsed 800ms ease 0ms;
+  }
+}

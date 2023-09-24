@@ -1,0 +1,52 @@
+:root {
+  --acrdHeadingColor: #2f2f30l;
+  --acrdTextColor: rgba(0, 0, 0, 0.85);
+  --acrdTextWhiteColor: #ffffff;
+  --acrdFontPrimary: sans-serif;
+  --acrdFontMedium: sans-serif;
+  --acrdFontStarling: serif;
+  --acrdFontSecondary: serif;
+  --acrdFontRegular: sans-serif;
+
+
+  --acrdBrownlightBg: #fcfaf0;
+  --acrdTableBrwnBg: #fee6b9;
+  --acrdTableRedBg: #ffbfb7;
+  --acrdDkTableGrnBg: #bce3e6;
+  --acrdTableLgGrnBg: #cae5b5;
+  --acrdTablePurpleBg: #c9c9ff;
+  --acrdHeadGrnBg: #17756c;
+}
+
+* {
+  box-sizing: border-box;
+  text-size-adjust: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@keyframes expand {
+  from {
+    width: 100%;
+    max-height: 0;
+    visibility: hidden;
+  }
+  to {
+    width: 100%;
+    max-height: 550px;
+    visibility: visible;
+  }
+}
+@keyframes collapse {
+  from {
+    width: 100%;
+    max-height: 550px;
+    visibility: visible;
+  }
+  to {
+    width: 100%;
+    max-height: 0;
+    visibility: hidden;
+  }
+}

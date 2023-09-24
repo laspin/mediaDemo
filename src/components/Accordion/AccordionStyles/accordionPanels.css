@@ -1,0 +1,76 @@
+.gridCard > div:nth-child(2) {
+  background-color: var(--acrdTableRedBg);
+}
+
+.gridCard > div:nth-child(3) {
+  background-color: var(--acrdTableBrwnBg);
+}
+
+.gridCard > div:nth-child(4) {
+  background-color: var(--acrdDkTableGrnBg);
+}
+
+.gridCard > div:nth-child(5) {
+  background-color: var(--acrdTableLgGrnBg);
+}
+
+.gridCard > div:nth-child(6) {
+  background-color: var(--acrdTablePurpleBg);
+}
+
+.tableHeading {
+  display: grid;
+  margin: 2.8rem 0 0.3rem;
+  padding: 0 19px;
+  font-size: 20px;
+  grid-template-columns: 270px 150px 0.75fr repeat(2, minmax(100px, 1fr));
+  width: 100%;
+}
+
+.tableRow {
+  grid-template-columns: 270px 150px 0.75fr repeat(2, minmax(100px, 1fr));
+  padding: 13px 19px 6px;
+  display: grid;
+  width: 100%;
+}
+
+.gridCard .tableCell {
+  display: flex;
+  width: fit-content;
+  font-family: var(--acrdFontMedium);
+  font-weight: 500;
+  text-align: left;
+  font-size: 16px;
+  line-height: 26px;
+  word-spacing: 0.26px;
+}
+
+.tableRow-child {
+  font-family: var(--acrdFontMedium);
+  font-weight: 800;
+  display: grid;
+  line-height: 26px;
+}
+
+.tableHeading .tableCell,
+.tableRow .tableCell:first-child {
+  font-family: var(--acrdFontPrimary);
+  font-weight: 800;
+  text-align: left;
+  font-size: 16px;
+  line-height: 26px;
+  word-spacing: 0.26px;
+}
+
+.tableCell div:nth-child(2) {
+  font-family: var(--acrdFontMedium);
+  font-weight: 800;
+}
+
+.tableHeading .tableCell {
+  font-family: var(--acrdFontPrimary);
+  font-weight: 800;
+  font-size: 20px;
+  text-align: left;
+  line-height: 32px;
+}

@@ -1,0 +1,345 @@
+.methodologyPage {
+  /* 40px/16=2.5em  |   12px/16*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #fcfaf0;
+  font-family: var(--acrdFontRegular), "AktivGrotesk", serif;
+  letter-spacing: 0.026px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 16px;
+  font-weight: normal;
+  width: 100%;
+  transition: all 0.25s 0ms;
+  min-height: 100%;
+  margin-bottom: 91px;
+}
+
+.dropdown__component {
+  padding-left: 5px;
+}
+.methodologyPage__container {
+  height: auto;
+  max-width: 1280px;
+  width: 96%;
+  margin: 0 auto;
+}
+
+.row {
+  width: 100%;
+  height: auto;
+}
+
+.row1__section,
+.row2__section {
+  background-color: #ffffff;
+}
+
+.row.row1__section {
+  padding: 0 55px 0 53px;
+  margin-top: 38px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.dropdown__component {
+  width: 67%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.dropdown__component p {
+  font-size: 1em;
+  line-height: 26px;
+  margin-top: 38px;
+}
+
+.inline-dropdown {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.dropdown--select:nth-child(2) {
+  margin-left: 39px;
+}
+
+.dropdown--select label {
+  font-family: var(--acrdFontMedium), "AktivGrotesk", serif;
+  text-align: left;
+  color: #2f2f30;
+  letter-spacing: 0.014px;
+  font-size: 0.78em;
+  font-weight: 500;
+}
+.dropdown--select .select-input {
+  width: 274px;
+  height: 46px;
+  overflow: hidden;
+  font-family: var(--acrdFontMedium), "AktivGrotesk", serif;
+  text-align: left;
+  color: #2f2f30;
+
+  letter-spacing: 0.019px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+
+#marketSelectLabel {
+  font-size: medium;
+  line-height: 1;
+}
+#mediumSelectLabel {
+  font-size: medium;
+  line-height: 1;
+}
+
+.methodologyPage__logo {
+  width: 33%;
+  display: flex;
+  margin-top: 3rem;
+  justify-content: flex-end;
+}
+
+.methodologyPage__logo img {
+  width: 100%;
+  max-width: 122px;
+  height: auto;
+}
+
+.methodologyPage__logo svg {
+  width: 100%;
+  max-width: 122px;
+  height: auto;
+}
+
+.row.row2__section {
+  padding: 0 49px 0 47px;
+  width: 100%;
+  height: auto;
+}
+
+.methodologyPage__heading {
+  font-family: var(--acrdFontStarling), "Starling", sans-serif;
+  text-align: left;
+  font-weight: 700;
+  width: 100%;
+  color: #232220;
+  font-size: 1.5em;
+  line-height: 45px;
+  letter-spacing: 0.045px;
+}
+
+.methodologyPage__heading > h2 {
+  padding: 1.865rem 0 0 5px;
+
+  margin: 0;
+}
+
+.cards__list {
+  display: flex;
+  flex-direction: column;
+  /*min-height: 100vh;*/
+  height: auto;
+  min-height: 100%;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.cards__wrapper {
+  padding: 26px 25px 40px 36px;
+  background-color: #fdfcf7;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: auto;
+  margin: 1rem 0 1.375rem;
+}
+
+.cards__wrapper .accordionHeader {
+  height: 44px;
+}
+.cards__wrapper .accordionHeader h3 {
+  font-family: var(--acrdFontPrimary), "AktivGrotesk", serif;
+  font-size: 1.125em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 0.026px;
+}
+
+.cards__wrapper section:nth-child(1) > div {
+  background-color: #ffbfb7;
+}
+
+.cards__wrapper section:nth-child(2) > div {
+  background-color: #fee6b9;
+}
+
+.cards__wrapper section:nth-child(3) > div {
+  background-color: #bce3e6;
+}
+
+.cards__wrapper section:nth-child(4) > div {
+  background-color: #cae5b5;
+}
+
+.cards__wrapper .accordionContent.expanded {
+  background-color: #fdfcf7;
+}
+
+.cards__wrapper .accordionContent.collapsed {
+  animation-delay: 700ms;
+  transition: all 2.5s linear;
+}
+
+.cards__wrapper .accordionContent.expanded {
+  animation-delay: 250ms;
+  transition: all 1.5s linear;
+}
+
+.card__component .gridCard .tableRow {
+  background-color: #fdfcf7;
+}
+
+.cards__wrapper svg > g > g {
+  fill: #232220;
+}
+
+@media screen and (max-width: 1023px) {
+  .methodologyPage__container {
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease-in 0ms;
+  }
+  .inline-dropdown {
+    flex-direction: column;
+    width: 60%;
+  }
+  .inline-dropdown .dropdown--select:nth-child(2) {
+    margin-left: 0;
+  }
+  .inline-dropdown .dropdown--select:nth-child(1) {
+    margin-bottom: 1.25rem;
+  }
+  .dropdown--select .select-input {
+    width: 254px;
+    height: 40px;
+    font-size: 0.94rem;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .tableHeading {
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  }
+
+  .tableRow {
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .methodologyPage {
+    background-color: transparent;
+  }
+
+  .methodologyPage__container {
+    width: 100%;
+    padding: 0;
+    height: auto;
+    transition: all 0.3s ease-in 0ms;
+  }
+  .dropdown__component p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown__component .inline-dropdown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .dropdown__component .dropdown--select {
+    margin-left: inherit;
+  }
+  .dropdown--select .select-input {
+    /*width: 254px;*/
+    /*height: 40px;*/
+    /*font-size: 0.94rem;*/
+  }
+
+  .row.row1__section {
+    padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .row.row1__section {
+    width: 100%;
+  }
+  .dropdown__component {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .methodologyPage__logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .row.row2__section {
+    margin-top: 3rem;
+    padding: 0;
+  }
+
+  .methodologyPage__heading {
+    margin-left: 0;
+  }
+  .methodologyPage__heading h2 {
+    text-align: center;
+  }
+
+  .cards__list .cards__wrapper {
+    padding-left: 25px;
+  }
+
+  .accordionMainHeader h1 {
+    font-size: 150%;
+  }
+  .cards__wrapper .accordionHeader > h3 {
+    font-size: 90%;
+  }
+
+  .tableHeading .tableCell {
+    font-size: 13px;
+  }
+
+  .card__component .gridCard .tableRow {
+    padding: 0 5px 0 10px;
+  }
+
+  .gridCard .tableRow .tableCell {
+    font-size: 13px;
+    padding-left: 0;
+    margin-left: 0;
+  }
+  .tableRow .tableCell:first-child,
+  .tableRow .tableCell:last-child {
+    font-size: 71%;
+  }
+
+  .panels {
+    overflow: scroll;
+    height: fit-content;
+  }
+}
