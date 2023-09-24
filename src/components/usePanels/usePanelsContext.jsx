@@ -1,106 +1,69 @@
-import React, { createContext, useContext } from "react";
-import { dataOne, dataTwo, dataThree, dataFour } from "../Panels/dataPanels";
+/*
+ *  usePanels hook along with Panels Provider allow components to access and
+ *  interact with panels data.
+ *
+ * */
 
-export const MARKET = "Market";
-export const MEDIUM = "Medium";
+import React, { createContext, useContext, useState } from "react";
+import {
+  MARKET,
+  MEDIUM,
+  panelsInitialState,
+  getMarketVariant,
+  getMediumVariant,
+} from "./hookUtils";
 
-const allPanels = [dataOne, dataTwo, dataThree, dataFour];
+// market & medium
+const isMarket = type => type?.includes(MARKET);
+const isMedium = type => type?.includes(MEDIUM);
+const isType = (type, str) => str?.toLowerCase()?.includes(type);
 
 // Panels context
 const PanelsContext = createContext(null);
-
-// usePanels hook
-const usePanels = () => React.useContext(PanelsContext);
-
-// variant type
-const isMarket = type => type.toLowerCase()?.includes(MARKET);
-const isMedium = type => type.toLowerCase()?.includes(MEDIUM);
-
-// data by variant
-const getMarketVariant = mkt => {
-  let varmar;
-  switch (mkt) {
-    case "GERMANY":
-      varmar = dataOne;
-      break;
-    case "SPAIN":
-      varmar = dataTwo;
-      break;
-    case "UKRAINE":
-      varmar = dataThree;
-      break;
-    case "MEXICO":
-      varmar = dataFour;
-      break;
-    case "NONE":
-      varmar = "";
-      break;
-    default:
-      varmar = "";
-      break;
+const usePanels = () => {
+  const context = useContext(PanelsContext);
+  if (!context) {
+    throw new Error("Make sure provider is within context (scope)");
   }
-  return vardata;
-};
-const getMediumVariant = med => {
-  let varmed;
-  switch (med) {
-    case "PUBLISHING":
-      varmed = dataOne;
-      break;
-    case "PRODUCTION":
-      varmed = dataTwo;
-      break;
-    case "MEDIA":
-      varmed = dataThree;
-      break;
-    case "DISTRIBUTION":
-      varmed = dataFour;
-      break;
-    case "NONE":
-      varmed = "";
-      break;
-    default:
-      varmed = "";
-      break;
-  }
-  return vardata;
-};
 
-//item,category
-const getFilterByVariantType = async (name, type) =>
-  isMarket(type)
-    ? getMarketVariant()
-    : isMedium(type)
-    ? getMediumVariant()
-    : "neither market or medium";
+  return {
+    ...context,
+  };
+};
 
 // Panels provider
 const PanelsProvider = ({ children }) => {
-  const [panels, setPanels] = React.useState([]);
+  const [panel, setPanel] = useState(panelsInitialState);
+  const [activeCard, setActiveCard] = useState(undefined);
 
-  // update panels based on market or medium
-  const updatePanels = async selected => {
-    // ex: market, germany
-    const results = await getFilterByVariantType(
-      selected.item,
-      selected.category
-    );
-    console.log("results ", results);
-    setPanels(results);
+  const getFilterByVariantType = (name, type) =>
+    isType(MARKET, type) ? getMarketVariant(name) : getMediumVariant(name);
+
+  // market cardOne, medium cardTwo
+  const handlePanelsUpdate = async (selected, variant) => {
+    const whichCard = isType(MARKET, variant) ? "cardOne" : "cardTwo";
+    setActiveCard(whichCard);
+    // update panel
+    const data = getFilterByVariantType(selected, variant);
+
+    setPanel(prevPanel => ({
+      ...prevPanel,
+      [whichCard]: {
+        ...prevPanel[whichCard],
+        currentPanel: data,
+        variant,
+      },
+    }));
   };
 
-  const handleCategoryUpdate = sele => {
-    updateCategory(sele);
-  };
-  const handlePanelsUpdate = value => {
-    setPanels(value);
+  const value = {
+    panel,
+    handlePanelsUpdate,
   };
 
   return (
-    <PanelsContext.Provider value={{ panels, handlePanelsUpdate,handleCategoryUpdate }}>
-      {children}
-    </PanelsContext.Provider>
+    <PanelsContext.Provider value={value}>{children}</PanelsContext.Provider>
   );
 };
 
-export { PanelsProvider, usePanels, allPanels };
+export { PanelsProvider, usePanels };

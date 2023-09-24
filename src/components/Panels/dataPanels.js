@@ -1,7 +1,7 @@
 export const dataOne = [
   {
     id: 1,
-    title: "Data from Panels 1",
+    title: "Data from dataOne Germany panels",
     heading: ["Data type", "Start date", "Frequency", "Partners"],
     body: {
       row1: ["Media spend", "Q1 1982", "Quarterly", "Varied by market"],
@@ -57,7 +57,7 @@ export const dataOne = [
 export const dataTwo = [
   {
     id: 1,
-    title: "Data from Panels 2",
+    title: "Data from dataTwo Spain panels",
     heading: ["Data type", "Start date", "Frequency", "Partners"],
     body: {
       row1: ["Media spend", "Q1 1982", "Quarterly", "Varied by market"],
@@ -113,7 +113,7 @@ export const dataTwo = [
 export const dataThree = [
   {
     id: 1,
-    title: "Data from Panels 3",
+    title: "Data from dataThree Ukraine panels",
     heading: ["Data type", "Start date", "Frequency", "Partners"],
     body: {
       row1: ["Media spend", "Q1 1982", "Quarterly", "Varied by market"],
@@ -169,7 +169,7 @@ export const dataThree = [
 export const dataFour = [
   {
     id: 1,
-    title: "Data from Panels 1",
+    title: "Data from dataFour Mexico panels",
     heading: ["Data type", "Start date", "Frequency", "Partners"],
     body: {
       row1: ["Media spend", "Q1 1982", "Quarterly", "Varied by market"],

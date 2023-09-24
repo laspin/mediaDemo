@@ -1,26 +1,28 @@
 import React from "react";
 import Accordion from "../Accordion";
-import { dataOne, dataTwo } from "./dataPanels";
+
+//import { useObjectState } from "@uidotdev/usehooks";
+import { usePanels } from "../usePanels/usePanelsContext";
 
 export const Panels = () => {
-  console.log("data in panels ", dataOne, dataTwo);
+  const { panel } = usePanels();
+
+  //const [state, setState] = useObjectState(initialState);
 
   return (
     <>
       <div className="cards__wrapper">
         <div className="card__component">
-          {dataOne && (
-            <Accordion data={dataOne} />
+          {panel.cardOne.category === "market" && (
+            <Accordion data={panel.cardOne.currentPanel} />
           )}
-
-
         </div>
       </div>
 
       <div className="cards__wrapper">
         <div className="card__component">
-          {dataTwo && (
-            <Accordion data={dataTwo} />
+          {panel.cardTwo.category === "medium" && (
+            <Accordion data={panel.cardTwo.currentPanel} />
           )}
         </div>
       </div>

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { selectOptions } from "./dropdownData";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { usePanels } from "../usePanels/usePanelsContext";
 
-export const InlineDropdown = ({ onMarketMediumChange }) => {
+export const InlineDropdown = () => {
+  const { handlePanelsUpdate } = usePanels();
+
   const { market, medium } = selectOptions;
   // state
   const [marketSelected, setMarketSelected] = useState("");
@@ -11,10 +14,12 @@ export const InlineDropdown = ({ onMarketMediumChange }) => {
   const onMarketChange = event => {
     const { value } = event.target;
     setMarketSelected(value);
+    handlePanelsUpdate(value, "market");
   };
   const onMediumChange = event => {
     const { value } = event.target;
     setMediumSelected(value);
+    handlePanelsUpdate(value, "medium");
   };
 
   return (
@@ -27,7 +32,7 @@ export const InlineDropdown = ({ onMarketMediumChange }) => {
             id="marketSelect"
             label={market.label}
             className="select-input"
-            onChange={value => onMarketMediumChange(value)}
+            onChange={onMarketChange}
             value={marketSelected}
           >
             <MenuItem value="">
@@ -52,7 +57,7 @@ export const InlineDropdown = ({ onMarketMediumChange }) => {
             label={medium.label}
             className="select-input"
             // onChange={onMediumChange}
-            onChange={value => onMarketMediumChange(value)}
+            onChange={onMediumChange}
             value={mediumSelected}
           >
             <MenuItem value="">
